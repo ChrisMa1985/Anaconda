@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anaconda.Engine", "Anaconda.Engine\Anaconda.Engine.csproj", "{A69C7BDD-8E72-485B-A638-BB7469BEC148}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Anaconda.Tests", "Anaconda.Tests\Anaconda.Tests.csproj", "{551D8E00-E3B0-474F-8DD9-9E13720D50FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A69C7BDD-8E72-485B-A638-BB7469BEC148}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A69C7BDD-8E72-485B-A638-BB7469BEC148}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A69C7BDD-8E72-485B-A638-BB7469BEC148}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A69C7BDD-8E72-485B-A638-BB7469BEC148}.Release|Any CPU.Build.0 = Release|Any CPU
+		{551D8E00-E3B0-474F-8DD9-9E13720D50FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{551D8E00-E3B0-474F-8DD9-9E13720D50FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{551D8E00-E3B0-474F-8DD9-9E13720D50FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{551D8E00-E3B0-474F-8DD9-9E13720D50FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

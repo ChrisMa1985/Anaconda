@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CMA.Anaconda.Engine.Activities.InputActivity&lt;TInput&gt;" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAgAA=</HashCode>
+      <FileName>Activities\InputActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMA.Anaconda.Engine.Activities.InputOutputActivity&lt;TInput, TOutput&gt;" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAgAA=</HashCode>
+      <FileName>Activities\InputOutputActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMA.Anaconda.Engine.Activities.OutputActivity&lt;TOutput&gt;" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAgAA=</HashCode>
+      <FileName>Activities\OutputActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMA.Anaconda.Engine.Activities.SimpleActivity" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAgAA=</HashCode>
+      <FileName>Activities\SimpleActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMA.Anaconda.Engine.Decisions.Decision&lt;TInput&gt;" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAABAAAAgAA=</HashCode>
+      <FileName>Decisions\Decision.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMA.Anaconda.Engine.WorkflowElement" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAEAAAIEAgEAAAAAAAAgAAAAQAABAAABgAA=</HashCode>
+      <FileName>WorkflowElement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CMA.Anaconda.Engine.WorkflowEngine" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACEAAAIAAAAAAgAAAAAIAAAAACAAAAAAAAI=</HashCode>
+      <FileName>WorkflowEngine.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="CMA.Anaconda.Engine.WorkflowProgressInfo" Collapsed="true">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIIAAAAgAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>WorkflowProgressInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Delegate Name="CMA.Anaconda.Engine.Activities.OutputActivityHandler&lt;TOutput&gt;" Collapsed="true">
+    <Position X="12" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Activities\OutputActivity.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

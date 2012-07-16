@@ -1,0 +1,330 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Anaconda.Engine</name>
+    </assembly>
+    <members>
+        <member name="T:CMA.Anaconda.Engine.WorkflowElement">
+            <summary>
+            Represents the base element. All parts of a workflow are defined as workflow elements
+            </summary>
+        </member>
+        <member name="F:CMA.Anaconda.Engine.WorkflowElement._steps">
+            <summary>
+            Represents the current executing step 
+            </summary>
+        </member>
+        <member name="F:CMA.Anaconda.Engine.WorkflowElement.Process">
+            <summary>
+            Represents the common process delegate
+            </summary>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.WorkflowElement.#ctor(System.Delegate)">
+            <summary>
+            Creates a new instance of the workflow element and initializes its components
+            </summary>
+            <param name="process">The associated executable process</param>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.WorkflowElement.ExecuteStep``1(``0)">
+            <summary>
+            Executes the current workflow step 
+            </summary>
+            <typeparam name="TWorkflowInput">The type for the input argument</typeparam>
+            <param name="argument">The input argument used for current step</param>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.WorkflowElement.ExecuteStepCore``2(``0,``1@)">
+            <summary>
+            Represents the template method used for step execution
+            </summary>
+            <typeparam name="TWorkflowInput">The input argument type</typeparam>
+            <typeparam name="TWorkflowOutput">The result/output argument type</typeparam>
+            <param name="argument">The input argument</param>
+            <param name="stepResult">The result/output argument</param>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.WorkflowElement.OnProgressChanged(System.String,System.Boolean,System.Exception)">
+            <summary>
+            Fires the progress changed event
+            </summary>
+            <param name="context">The current workflow context</param>
+            <param name="isSucceeded">Flag indicating if step is succeeded</param>
+            <param name="exception">The possibly occured exception during process execution</param>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.WorkflowElement.OnCompletionChanged(System.Exception)">
+            <summary>
+            Fires the completed event
+            </summary>
+            <param name="exception">The possibly occured exception</param>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.WorkflowElement.ToString">
+            <summary>
+            Returns the string representation for current step
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.WorkflowElement.GetCurrentContext">
+            <summary>
+            Represents the template method used for retrieving the string representation for current step
+            </summary>
+            <returns>The string representation for current step</returns>
+        </member>
+        <member name="E:CMA.Anaconda.Engine.WorkflowElement.ProgressChanged">
+            <summary>
+            Represents the event fired when the workflow execution progress changes
+            </summary>
+        </member>
+        <member name="E:CMA.Anaconda.Engine.WorkflowElement.Completed">
+            <summary>
+            Represents the event fired when workflow execution is completed
+            </summary>
+        </member>
+        <member name="P:CMA.Anaconda.Engine.WorkflowElement.Successor">
+            <summary>
+            Gets or sets the current workflow element successor
+            </summary>
+        </member>
+        <member name="T:CMA.Anaconda.Engine.Activities.InputOutputActivity`2">
+            <summary>
+            Represents the input and output activity. This activity or step uses an input and creates an output
+            </summary>
+            <typeparam name="TInput">The input value type</typeparam>
+            <typeparam name="TOutput">The output value type </typeparam>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.Activities.InputOutputActivity`2.#ctor(System.Func{`0,`1})">
+            <summary>
+            Creates a new input and output activity instance
+            </summary>
+            <param name="process">The associated process being executed</param>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.Activities.InputOutputActivity`2.ExecuteStepCore``2(``0,``1@)">
+            <summary>
+            Executes the associated delegate action and returns process result
+            </summary>
+            <typeparam name="TWorkflowInput">The type of input argument</typeparam>
+            <typeparam name="TWorkflowOutput">The type of output/result argument</typeparam>
+            <param name="argument">The input argument for the process</param>
+            <param name="stepResult">The result of the process</param>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.Activities.InputOutputActivity`2.GetCurrentContext">
+            <summary>
+            Returns the current context as string
+            </summary>
+            <returns>The currently executing context</returns>
+        </member>
+        <member name="T:CMA.Anaconda.Engine.WorkflowProgressInfo">
+            <summary>
+            Represents the workflow progress info instance used for handling progress change specific information
+            </summary>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.WorkflowProgressInfo.#ctor(System.UInt32,System.String,System.Boolean,System.Exception)">
+            <summary>
+            Creates a new instance of the info class and initializes its components
+            </summary>
+            <param name="currentStep">The currently executing workflow step</param>
+            <param name="context">The currently executing workflow context</param>
+            <param name="isSucceeded">Flag indicating if current workflow step has succeeded</param>
+            <param name="possiblyOccuredException">The possibly occured exception during workflow step execution</param>
+        </member>
+        <member name="P:CMA.Anaconda.Engine.WorkflowProgressInfo.CurrentStep">
+            <summary>
+            Gets the currently executing workflow step
+            </summary>
+        </member>
+        <member name="P:CMA.Anaconda.Engine.WorkflowProgressInfo.Context">
+            <summary>
+            Gets the currently executing workflow context
+            </summary>
+        </member>
+        <member name="P:CMA.Anaconda.Engine.WorkflowProgressInfo.IsSucceeded">
+            <summary>
+            Gets the flag indicating if currently executing workflow step has succeeded
+            </summary>
+        </member>
+        <member name="P:CMA.Anaconda.Engine.WorkflowProgressInfo.PossiblyOccuredException">
+            <summary>
+            Gets the possibly occured exception during workflow step execution
+            </summary>
+        </member>
+        <member name="T:CMA.Anaconda.Engine.WorkflowEngine">
+            <summary>
+            Represents the workflow engine used to start the workflow execution
+            </summary>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.WorkflowEngine.#ctor">
+            <summary>
+            Creates a new instance of the class and initializes its components
+            </summary>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.WorkflowEngine.Run``1(CMA.Anaconda.Engine.WorkflowElement,``0)">
+            <summary>
+            Starts the workflow process
+            </summary>
+            <typeparam name="T">The input argument type</typeparam>
+            <param name="startPoint">The workflow start point</param>
+            <param name="argument">The start point input argument</param>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.WorkflowEngine.Run(CMA.Anaconda.Engine.WorkflowElement)">
+            <summary>
+            Starts the workflow process
+            </summary>
+            <param name="startPoint">The workflow start point</param>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.WorkflowEngine.RegisterEvent">
+            <summary>
+            Registers events
+            </summary>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.WorkflowEngine.Completed(System.Exception)">
+            <summary>
+            Handles completed event for workflow 
+            </summary>
+            <param name="possiblyOccuredException">The exception which has been possibly occured</param>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.WorkflowEngine.ProgressChanged(CMA.Anaconda.Engine.WorkflowProgressInfo)">
+            <summary>
+            Handles progress changed event for workflow
+            </summary>
+            <param name="progressInfo">The progress info holding all information for current workflow progress step</param>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.WorkflowEngine.Dispose">
+            <summary>
+            Disposes the engine
+            </summary>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.WorkflowEngine.Dispose(System.Boolean)">
+            <summary>
+            Disposes the members of the engine by deregistering from events 
+            </summary>
+            <param name="disposing">Flag indicating if dispose is needed</param>
+        </member>
+        <member name="E:CMA.Anaconda.Engine.WorkflowEngine.WorkflowCompleted">
+            <summary>
+            The event fired when workflow has completed
+            </summary>
+        </member>
+        <member name="E:CMA.Anaconda.Engine.WorkflowEngine.WorkflowProgressChanged">
+            <summary>
+            The event fired when workflow progress has changed
+            </summary>
+        </member>
+        <member name="T:CMA.Anaconda.Engine.Activities.OutputActivityHandler`1">
+            <summary>
+            Represents the process delegate used for output activity. It returns a specific output and takes no input arguments
+            </summary>
+            <typeparam name="TOutput">The type of the output argument</typeparam>
+            <returns>The output value</returns>
+        </member>
+        <member name="T:CMA.Anaconda.Engine.Activities.OutputActivity`1">
+            <summary>
+            Represents the output activity. This activity or step uses no input and creates an output
+            </summary>
+            <typeparam name="TOutput">The output value type</typeparam>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.Activities.OutputActivity`1.#ctor(CMA.Anaconda.Engine.Activities.OutputActivityHandler{`0})">
+            <summary>
+            Creates a new output activity instance
+            </summary>
+            <param name="process">The associated process being executed</param>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.Activities.OutputActivity`1.ExecuteStepCore``2(``0,``1@)">
+            <summary>
+            Executes the associated delegate action and returns process result
+            </summary>
+            <typeparam name="TWorkflowInput">The type of input argument</typeparam>
+            <typeparam name="TWorkflowOutput">The type of output/result argument</typeparam>
+            <param name="argument">The input argument for the process</param>
+            <param name="stepResult">The result of the process</param>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.Activities.OutputActivity`1.GetCurrentContext">
+            <summary>
+            Returns the current context as string
+            </summary>
+            <returns>The currently executing context</returns>
+        </member>
+        <member name="T:CMA.Anaconda.Engine.Activities.InputActivity`1">
+            <summary>
+            Represents the input activity. This activity or step uses an input and creates no output
+            </summary>
+            <typeparam name="TInput">The input value type</typeparam>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.Activities.InputActivity`1.#ctor(System.Action{`0})">
+            <summary>
+            Creates a new input activity instance
+            </summary>
+            <param name="process">The associated process being executed</param>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.Activities.InputActivity`1.ExecuteStepCore``2(``0,``1@)">
+            <summary>
+            Executes the associated delegate action and returns process result
+            </summary>
+            <typeparam name="TWorkflowInput">The type of input argument</typeparam>
+            <typeparam name="TWorkflowOutput">The type of output/result argument</typeparam>
+            <param name="argument">The input argument for the process</param>
+            <param name="stepResult">The result of the process</param>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.Activities.InputActivity`1.GetCurrentContext">
+            <summary>
+            Returns the current context as string
+            </summary>
+            <returns>The currently executing context</returns>
+        </member>
+        <member name="T:CMA.Anaconda.Engine.Decisions.Decision`1">
+            <summary>
+            Represents the decision. This decision or step uses an input and returns the specific workflow element depending on given filter
+            </summary>
+            <typeparam name="TInput">The input value type</typeparam>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.Decisions.Decision`1.#ctor(System.Predicate{`0})">
+            <summary>
+            Creates a new decision instance
+            </summary>
+            <param name="filter">The associated filter being executed for decision process</param>
+            /// <param name="secondSuccessorCandidate">The successor workflow element being the next in workflow chain if filter returns false</param>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.Decisions.Decision`1.ExecuteStepCore``2(``0,``1@)">
+            <summary>
+            Executes the associated delegate action and returns process result
+            </summary>
+            <typeparam name="TWorkflowInput">The type of input argument</typeparam>
+            <typeparam name="TWorkflowOutput">The type of output/result argument</typeparam>
+            <param name="argument">The input argument for the process</param>
+            <param name="stepResult">The result of the process</param>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.Decisions.Decision`1.GetCurrentContext">
+            <summary>
+            Returns the current context as string
+            </summary>
+            <returns>The currently executing context</returns>
+        </member>
+        <member name="P:CMA.Anaconda.Engine.Decisions.Decision`1.AlternativeSuccessor">
+            <summary>
+            Gets or sets the alternative successor
+            </summary>
+        </member>
+        <member name="T:CMA.Anaconda.Engine.Activities.SimpleActivity">
+            <summary>
+            Represents the simple activity. This activity or step has no input and no output
+            </summary>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.Activities.SimpleActivity.#ctor(System.Action)">
+            <summary>
+            Creates a new simple activity instance
+            </summary>
+            <param name="process">The associated process being executed</param>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.Activities.SimpleActivity.ExecuteStepCore``2(``0,``1@)">
+            <summary>
+            Executes the associated delegate action and returns process result
+            </summary>
+            <typeparam name="TWorkflowInput">The type of input argument</typeparam>
+            <typeparam name="TWorkflowOutput">The type of output/result argument</typeparam>
+            <param name="argument">The input argument for the process</param>
+            <param name="stepResult">The result of the process</param>
+        </member>
+        <member name="M:CMA.Anaconda.Engine.Activities.SimpleActivity.GetCurrentContext">
+            <summary>
+            Returns the current context as string
+            </summary>
+            <returns>The currently executing context</returns>
+        </member>
+    </members>
+</doc>
